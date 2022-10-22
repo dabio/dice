@@ -1,3 +1,3 @@
 module dab.io/dice
 
-go 1.18
+go 1.19

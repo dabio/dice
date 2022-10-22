@@ -9,20 +9,15 @@ import (
 	"dab.io/dice"
 )
 
-const (
-	defaultCount = 4
-	maxCount     = 100
-)
-
 func main() {
-	count := defaultCount
+	count := dice.DefaultCount
 
 	flag.Parse()
 	if flag.NArg() > 0 {
 		_, _ = fmt.Sscan(flag.Arg(0), &count)
 	}
-	if count > maxCount {
-		fmt.Printf("ERROR: More than %d words are not supported.\n", maxCount)
+	if count > dice.MaxCount {
+		fmt.Printf("ERROR: More than %d words are not supported.\n", dice.MaxCount)
 		os.Exit(1)
 	}
 

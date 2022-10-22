@@ -1,0 +1,27 @@
+<html>
+<title>Dice - Roll Your Password</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+html {
+  max-width: 70ch;
+  padding: calc(1vmin + .5rem);
+  margin-inline: auto;
+  font-size: clamp(1em, 0.909em + 0.45vmin, 1.25em);
+  font-family: system-ui
+}
+body :not(:is(h1,h2,h3,h4,h5,h6)) {
+  line-height: 1.75;
+}
+input#p {
+  font-size: medium;
+  width: 100%;
+}
+</style>
+<body>
+<form method="get">
+  <input type="number" name="count" value="{{ .Count }}" min="1" max="{{ .MaxCount }}">
+  <input type="submit" value="Go">
+</form>
+<p>{{range $i, $item := .Result}}{{if $i}} {{end}}{{$item}}{{end}}</p>
+</body>
+</html>
