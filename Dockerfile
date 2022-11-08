@@ -4,6 +4,5 @@ COPY . .
 RUN CGO_ENABLED=0 go build -o dice cmd/server/server.go
 
 FROM registry.access.redhat.com/ubi8/ubi-micro
-FROM scratch
 COPY --from=app-builder /go/src/app/dice /dice
 ENTRYPOINT ["/dice"]
