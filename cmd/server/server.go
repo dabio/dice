@@ -24,10 +24,9 @@ type Roll struct {
 func main() {
 	http.HandleFunc("/", redirectHttps(roll()))
 
-	port := env("PORT", "3000")
-	address := env("ADDRESS", "0.0.0.0")
-	log.Printf("Listening on port %s:%s", address, port)
-	log.Fatal(http.ListenAndServe(address+":"+port, nil))
+	addr := env("ADDR", "0.0.0.0:3000")
+	log.Printf("Listening on port %s", addr)
+	log.Fatal(http.ListenAndServe(addr, nil))
 }
 
 func roll() http.HandlerFunc {
